@@ -105,6 +105,12 @@ jupyter notebook "st126235_assignment_5.ipynb"
 | Reward Margin | 0.053 | 10.67 | 11.73 | Model clearly distinguishes chosen vs rejected |
 | Reward Accuracy | 60% | 100% | 100% | Reached 100% early and sustained |
 
+### Training Curves
+
+![Training Loss](assets/dpo_training_loss.png)
+![Reward Margins](assets/dpo_reward_margins.png)
+![Reward Accuracy](assets/dpo_reward_accuracy.png)
+
 ### Hyperparameter Experimentation
 
 - **Beta (0.1 vs 0.3):** `beta=0.1` selected for stronger preference optimization signal.
@@ -145,6 +151,8 @@ $$Win~Rate = \frac{Model~B~Wins + (0.5 \times Ties)}{Total~Evaluations} \times 1
 | Model B (DPO) wins | 2 / 15 |
 | Ties | 1 / 15 |
 | **DPO Win Rate** | **16.7%** |
+
+![AlpacaEval Results](assets/alpaca_eval_results.png)
 
 The Base model outperformed the DPO model on general helpfulness prompts. This is expected because the DPO model was trained on a **truthfulness-specific** dataset (`truthy-dpo-v0.1`), while the evaluation uses **general helpfulness** prompts from `helpful_base`. A domain-matched evaluation (e.g., TruthfulQA) would better capture the DPO model's improvements.
 
